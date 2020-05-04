@@ -1,10 +1,10 @@
 package com.karepin.homework_005;
 
-public class Persen {
+public class Person {
     public String name;
-    public String age;
+    public int age;
 
-    public Persen(String name, String age) {
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -17,11 +17,11 @@ public class Persen {
         this.name = name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 

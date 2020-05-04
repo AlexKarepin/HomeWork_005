@@ -32,11 +32,11 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         saveData();
-        myPressureUp = findViewById(R.id.editText3);
-        myPressureDown = findViewById(R.id.editText4);
-        myPulse = findViewById(R.id.editText5);
-        myTachycar = findViewById(R.id.switch1);
-        myDate = findViewById(R.id.calendarView);
+        myPressureUp = findViewById(R.id.fieldPressureUp);
+        myPressureDown = findViewById(R.id.fieldPressureDown);
+        myPulse = findViewById(R.id.fieldPulse);
+        myTachycar = findViewById(R.id.fieldTahicardia);
+        myDate = findViewById(R.id.fieldCalendar);
 
         myDate.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -51,7 +51,7 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     private void saveData() {
-        button = findViewById(R.id.button4);
+        button = findViewById(R.id.buttonSavePressure);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,21 +62,17 @@ public class MainActivity2 extends AppCompatActivity {
                 if (selectedDate == null) {
                     selectedDate = new Date(myDate.getDate());
                 }
-                while (true) {
-                    if (newPressureUp.isEmpty() || newPressureDown.isEmpty() || newPulse.isEmpty()) {
-                        Toast.makeText(MainActivity2.this, "Ошибка, введите данные", Toast.LENGTH_LONG).show();
-                    } else {
-                        Pressure pr = new Pressure(Integer.parseInt(newPressureUp), Integer.parseInt(newPressureDown), Integer.parseInt(newPulse), myTachycar.isChecked(), selectedDate);
-                        list.add(pr);
-                        StringBuilder sb = new StringBuilder();
-                        for (Pressure a : list) {
-                            sb.append(a);
-                            Toast.makeText(MainActivity2.this, sb.toString(), Toast.LENGTH_LONG).show();
-                            startActivity(intent);
-                        }
+                if (newPressureUp.isEmpty() || newPressureDown.isEmpty() || newPulse.isEmpty()) {
+                    Toast.makeText(MainActivity2.this, "Ошибка, введите данные", Toast.LENGTH_LONG).show();
+                } else {
+                    Pressure pr = new Pressure(Integer.parseInt(newPressureUp), Integer.parseInt(newPressureDown), Integer.parseInt(newPulse), myTachycar.isChecked(), selectedDate);
+                    list.add(pr);
+                    StringBuilder sb = new StringBuilder();
+                    for (Pressure a : list) {
+                        sb.append(a);
                     }
-                    break;
-
+                    Toast.makeText(MainActivity2.this, sb.toString(), Toast.LENGTH_LONG).show();
+                    startActivity(intent);
                 }
             }
         });

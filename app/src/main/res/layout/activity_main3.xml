@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/nameViewOther"
         android:layout_width="416dp"
         android:layout_height="67dp"
         android:padding="20dp"
@@ -19,7 +19,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/fieldWeight"
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -32,7 +32,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/fieldNumberOfSteps"
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -44,7 +44,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonSaveOther"
         android:layout_width="210dp"
         android:layout_height="50dp"
         android:layout_marginTop="345dp"

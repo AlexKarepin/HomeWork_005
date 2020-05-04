@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/mainPicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/circle_black_48dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/nameProject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/system"
@@ -28,10 +28,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintTop_toBottomOf="@id/mainPicture" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/fieldForName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -43,10 +43,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView4" />
+        app:layout_constraintTop_toBottomOf="@id/nameProject" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/fieldForAge"
         android:layout_width="118dp"
         android:layout_height="48dp"
         android:layout_marginTop="220dp"
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText"
+        app:layout_constraintTop_toBottomOf="@id/fieldForName"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -74,10 +74,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText2" />
+        app:layout_constraintTop_toBottomOf="@id/fieldForAge" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonPressure"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginStart="48dp"
@@ -88,13 +88,13 @@
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/button3"
+        app:layout_constraintEnd_toStartOf="@id/buttonOther"
         app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonOther"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
@@ -106,7 +106,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.857"
-        app:layout_constraintStart_toEndOf="@id/button2"
+        app:layout_constraintStart_toEndOf="@id/buttonPressure"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button" />
 

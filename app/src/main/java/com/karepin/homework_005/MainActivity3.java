@@ -24,32 +24,29 @@ public class MainActivity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         saveOther();
-        myWeight = findViewById(R.id.editText8);
-        mySteps = findViewById(R.id.editText9);
+        myWeight = findViewById(R.id.fieldWeight);
+        mySteps = findViewById(R.id.fieldNumberOfSteps);
     }
 
     private void saveOther() {
-        button = findViewById(R.id.button5);
+        button = findViewById(R.id.buttonSaveOther);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity3.this, MainActivity.class);
                 String newWeight = myWeight.getText().toString();
                 String newSteps = mySteps.getText().toString();
-                while (true) {
-                    if (newWeight.isEmpty() || newSteps.isEmpty()) {
-                        Toast.makeText(MainActivity3.this, "Ошибка, введите данные", Toast.LENGTH_LONG).show();
-                    } else {
-                        Other other = new Other(Double.parseDouble(newWeight), Integer.parseInt(newSteps));
-                        list.add(other);
-                        StringBuilder sb = new StringBuilder();
-                        for (Other a : list) {
-                            sb.append(a);
-                        }
-                        Toast.makeText(MainActivity3.this, sb.toString(), Toast.LENGTH_LONG).show();
-                        startActivity(intent);
+                if (newWeight.isEmpty() || newSteps.isEmpty()) {
+                    Toast.makeText(MainActivity3.this, "Ошибка, введите данные", Toast.LENGTH_LONG).show();
+                } else {
+                    Other other = new Other(Double.parseDouble(newWeight), Integer.parseInt(newSteps));
+                    list.add(other);
+                    StringBuilder sb = new StringBuilder();
+                    for (Other a : list) {
+                        sb.append(a);
                     }
-                    break;
+                    Toast.makeText(MainActivity3.this, sb.toString(), Toast.LENGTH_LONG).show();
+                    startActivity(intent);
                 }
             }
         });

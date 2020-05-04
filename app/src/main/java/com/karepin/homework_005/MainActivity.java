@@ -14,8 +14,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    Button button;
-    private ArrayList<Persen> list = new ArrayList<>();
+    Button buttonSave;
+    Button buttonSetPressure;
+    Button buttonSetOther;
+    private ArrayList<Person> list = new ArrayList<>();
     private EditText myName;
     private EditText myAge;
 
@@ -23,41 +25,43 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        save();
+        saveName();
         setPressure();
-        other();
-        myName = findViewById(R.id.editText);
-        myAge = findViewById(R.id.editText2);
+        setOtherData();
+        myName = findViewById(R.id.fieldForName);
+        myAge = findViewById(R.id.fieldForAge);
     }
 
-    private void save() {
-        button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+    private void saveName() {
+        buttonSave = findViewById(R.id.button);
+        buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String newName = myName.getText().toString();
+                try {
+                    Integer.parseInt(newName);
+                    Toast.makeText(MainActivity.this, "Введите имя! ", Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                }
                 String newAge = myAge.getText().toString();
-                while (true) {
-                    if (newName.isEmpty() || newAge.isEmpty()) {
-                        Toast.makeText(MainActivity.this, "Ошибка, введите данные", Toast.LENGTH_LONG).show();
-                    } else {
-                        Persen persen = new Persen(newName, newAge);
-                        list.add(persen);
-                        StringBuilder sb = new StringBuilder();
-                        for (Persen a : list) {
-                            sb.append(a);
-                            Toast.makeText(MainActivity.this, sb.toString(), Toast.LENGTH_LONG).show();
-                        }
+                if (newName.isEmpty() || newAge.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Ошибка, введите данные", Toast.LENGTH_LONG).show();
+                } else {
+                    Person person = new Person(newName, Integer.parseInt(newAge));
+                    list.add(person);
+                    StringBuilder sb = new StringBuilder();
+                    for (Person a : list) {
+                        sb.append(a);
                     }
-                    break;
+                    Toast.makeText(MainActivity.this, sb.toString(), Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
 
     private void setPressure() {
-        button = findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonSetPressure = findViewById(R.id.buttonPressure);
+        buttonSetPressure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(MainActivity.this, MainActivity2.class);
@@ -66,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void other() {
-        button = findViewById(R.id.button3);
-        button.setOnClickListener(new View.OnClickListener() {
+    private void setOtherData() {
+        buttonSetOther = findViewById(R.id.buttonOther);
+        buttonSetOther.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainActivity3.class);

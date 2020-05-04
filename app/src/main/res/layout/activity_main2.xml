@@ -10,7 +10,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/nameViewPressure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -20,7 +20,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/fieldPressureUp"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -33,7 +33,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/fieldPressureDown"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -45,7 +45,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/fieldPulse"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -56,7 +56,7 @@
         android:textStyle="bold" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/fieldTahicardia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -68,13 +68,13 @@
         tools:layout_editor_absoluteY="252dp" />
 
     <CalendarView
-        android:id="@+id/calendarView"
+        android:id="@+id/fieldCalendar"
         android:layout_width="304dp"
         android:layout_height="296dp"
         android:layout_marginTop="10dp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonSavePressure"
         android:layout_width="210dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
