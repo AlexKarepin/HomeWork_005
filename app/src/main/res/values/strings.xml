@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">HomeWork_005</string>
+    <string name="save">СОХРАНИТЬ</string>
+    <string name="system">Комплексная система мониторинга здоровья</string>
+    <string name="name">Имя</string>
+    <string name="age">Возраст</string>
+    <string name="pressure">давлениие</string>
+    <string name="other">другое</string>
+    <string name="pressure_indicators">Показатели давления</string>
+    <string name="pressureUp">Верхнее давление</string>
+    <string name="pressureDown">Нижнее давление</string>
+    <string name="pulse">Пульс</string>
+    <string name="tahicardia">Тахикардия</string>
+    <string name="date">Дата</string>
+    <string name="otherData">Другие показатели</string>
+    <string name="weight">Вес</string>
+    <string name="numberOfSteps">Количество шагов</string>
+</resources>
