@@ -16,9 +16,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity2 extends AppCompatActivity {
-    Button button;
-    ArrayList<Pressure> list = new ArrayList<>();
+public class ActivityPressure extends AppCompatActivity {
+    private ArrayList<Pressure> list = new ArrayList<>();
     private EditText myPressureUp;
     private EditText myPressureDown;
     private EditText myPulse;
@@ -51,11 +50,13 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     private void saveData() {
-        button = findViewById(R.id.buttonSavePressure);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button buttonSavePressure = findViewById(R.id.buttonSavePressure);
+        buttonSavePressure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+                // объявляем Intent для перехода после сохранения на главное активити
+                Intent intent = new Intent(ActivityPressure.this, MainActivity.class);
+                // добавляем проверку на пустые строки
                 String newPressureUp = (String) myPressureUp.getText().toString();
                 String newPressureDown = (String) myPressureDown.getText().toString();
                 String newPulse = (String) myPulse.getText().toString();
@@ -63,17 +64,20 @@ public class MainActivity2 extends AppCompatActivity {
                     selectedDate = new Date(myDate.getDate());
                 }
                 if (newPressureUp.isEmpty() || newPressureDown.isEmpty() || newPulse.isEmpty()) {
-                    Toast.makeText(MainActivity2.this, "Ошибка, введите данные", Toast.LENGTH_LONG).show();
-                } else {
-                    Pressure pr = new Pressure(Integer.parseInt(newPressureUp), Integer.parseInt(newPressureDown), Integer.parseInt(newPulse), myTachycar.isChecked(), selectedDate);
-                    list.add(pr);
-                    StringBuilder sb = new StringBuilder();
-                    for (Pressure a : list) {
-                        sb.append(a);
-                    }
-                    Toast.makeText(MainActivity2.this, sb.toString(), Toast.LENGTH_LONG).show();
-                    startActivity(intent);
+                    Toast.makeText(ActivityPressure.this, "Ошибка, введите данные", Toast.LENGTH_LONG).show();
+                    return;
                 }
+                // создаем экземпляр класса и добавляем в список
+                Pressure pressure = new Pressure(Integer.parseInt(newPressureUp), Integer.parseInt(newPressureDown), Integer.parseInt(newPulse), myTachycar.isChecked(), selectedDate);
+                list.add(pressure);
+                // выводим сохраненные объекты
+                StringBuilder sb = new StringBuilder();
+                for (Pressure a : list) {
+                    sb.append(a);
+                }
+                Toast.makeText(ActivityPressure.this, sb.toString(), Toast.LENGTH_LONG).show();
+                // переходим на главную активити
+                startActivity(intent);
             }
         });
     }
